@@ -7,8 +7,7 @@ def hw():
 def lines(fp):
     print str(len(fp.readlines()))
 
-def load_sentiment_scores():
-  afinnfile = open("AFINN-111.txt")
+def load_sentiment_scores(afinnfile):
   scores = {} # initialize an empty dictionary
   for line in afinnfile:
     term, score  = line.split("\t")  # The file is tab-delimited. "\t" means "tab character"
@@ -20,8 +19,7 @@ def load_sentiment_scores():
 def main():
     sent_file = open(sys.argv[1])
     tweet_file = open(sys.argv[2])
-    hw()
-    scores = load_sentiment_scores()
+    scores = load_sentiment_scores(sent_file)
     #lines(sent_file)
     #lines(tweet_file)
     for line in tweet_file:
